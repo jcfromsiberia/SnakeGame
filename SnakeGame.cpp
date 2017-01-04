@@ -231,6 +231,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             SelectObject(hdc, hPen);
             FillRect(hdc, &rect, hBrush);
             Rectangle(hdc, rect.left, rect.top, rect.right, rect.bottom);
+            DeleteObject(hBrush);
+            DeleteObject(hPen);
          };
          // Drawing snake's body
          for(auto const & snakeBlock: Game::instance().snake())
